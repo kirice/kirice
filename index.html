@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Строительный калькулятор</title>
+
+ 
+
+<!-- Исправленный URL -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script> 
+
+<!-- jsPDF с поддержкой кириллицы -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.24/jspdf.plugin.autotable.min.js"></script> 
+
+<!-- Подключение шрифта Roboto -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN (для использования без сборки) -->
+  <script src="https://cdn.tailwindcss.com"></script> 
+
+  <!-- React и ReactDOM (CDN для разработки) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> 
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+
+  <!-- Babel для обработки JSX в браузере -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+
+  <!-- jwt-decode через CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>  
+
+  <style>
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fadeIn {
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    @keyframes fadeInOut {
+    0%   { opacity: 0; transform: translateY(-10px); }
+    10%  { opacity: 1; transform: translateY(0); }
+    90%  { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+     }
+
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .underline-hover::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, #6366F1, #4F46E5);
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  .underline-hover:hover::after {
+    visibility: visible;
+    width: 100%;
+  }
+    
+  </style> 
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Ваш React-код в формате JSX -->
+  <script type="text/babel" src="./JS/App.jsx"></script>
+  <div id="toast-container" style="
+  position: fixed;       /* фиксированное позиционирование */
+  top: 20px;             /* отступ сверху */
+  left: 50%;             /* по центру по горизонтали */
+  transform: translateX(-50%);  /* сдвиг назад на 50% ширины для точного центрирования */
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;  /* чтобы клики проходили сквозь */
+"></div>
+
+</body>
+</html>
